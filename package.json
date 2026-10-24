@@ -1,0 +1,21 @@
+{
+  "name": "100-dinomamis-y-dinopapis-dijeron",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Juego de preguntas en tiempo real con panel de administrador y vista para invitados.",
+  "main": "server.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.5.0",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  }
+}

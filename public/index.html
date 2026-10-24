@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fdf3e6">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f7a9bd'/%3E%3Ctext x='32' y='43' font-size='26' text-anchor='middle' font-family='Arial' font-weight='bold' fill='%23014b3e'%3E100%3C/text%3E%3C/svg%3E">
+  <title>Panel del animador · 100 Dinomamis y Dinopapis dijeron</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+  <div class="admin-bg" aria-hidden="true"></div>
+
+  <div class="admin-shell">
+    <header class="admin-header">
+        <div class="admin-brand__logo" id="brand">
+          <img class="admin-brand__logo-img" id="logo" src="img/logo.png" alt="100 Dinomamis y Dinopapis dijeron">
+        </div>
+      <div class="admin-status">
+        <span class="chip" id="stateChip" role="status" aria-live="polite">FASE: CARA A CARA</span>
+        <span class="admin-text" id="status"></span>
+      </div>
+    </header>
+
+      <section class="admin-scores">
+        <div class="admin-score admin-score--left" id="teamLeft">
+          <span class="admin-score__name">Dinomamis</span>
+          <span class="admin-score__value" id="scoreLeft">000</span>
+        </div>
+        <div class="admin-score admin-score--right" id="teamRight">
+          <span class="admin-score__name">Dinopapis</span>
+          <span class="admin-score__value" id="scoreRight">000</span>
+        </div>
+      </section>
+
+      <div class="admin-bank-row">
+        <span class="admin-bank__label">En juego</span>
+        <span class="admin-bank__value" id="bankValue">0 pts</span>
+      </div>
+
+      <div class="admin-round">
+        <span class="admin-round__text" id="roundLabel">Ronda 1 de 6</span>
+        <span class="admin-round__mult" id="multLabel">x1</span>
+      </div>
+
+      <div class="admin-strikes-row">
+        <span class="admin-strikes__label">Equis</span>
+        <span class="admin-strikes__value" id="strikesValue" role="status" aria-live="polite">0</span>
+        <span class="admin-strikes__unit">/3</span>
+        <div class="strikes" id="strikeDots" role="img" aria-label="0 de 3 equis"></div>
+      </div>
+
+      <section class="timer-panel" id="timerPanel" aria-label="Cronómetro">
+        <label class="timer-toggle"><input type="checkbox" id="timerEnabled"> CRONÓMETRO ON / OFF</label>
+        <div class="timer-display"><span id="timerValue" role="timer">--</span><span>segundos</span></div>
+        <span id="timerStatus">Desactivado</span>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--wide" id="btnTimerPause" type="button" disabled>REANUDAR</button>
+          <button class="soft-btn soft-btn--wide" id="btnTimerSubtract" type="button" disabled>−5s</button>
+          <button class="soft-btn soft-btn--wide" id="btnTimerAdd" type="button" disabled>+5s</button>
+        </div>
+      </section>
+
+      <div class="admin-question">
+        <span class="admin-question__tag">Pregunta</span>
+        <h1 class="admin-question__text" id="question" aria-live="polite">Cargando la primera ronda…</h1>
+      </div>
+
+      <ul class="admin-answers" id="answers" aria-live="polite"></ul>
+
+      <div class="admin-banner" id="banner" aria-hidden="true"></div>
+
+      <!-- Botonera táctil -->
+      <nav class="admin-controls">
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--large soft-btn--mint" id="btnF2" type="button">INICIAR</button>
+        </div>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--wide" id="btnFaceoffLeft" type="button">DINOMAMIS</button>
+          <button class="soft-btn soft-btn--wide" id="btnFaceoffRight" type="button">DINOPAPIS</button>
+        </div>
+        <div class="btn-row answers-row">
+          <button class="soft-btn soft-btn--ans" id="btnAns1" type="button">1</button>
+          <button class="soft-btn soft-btn--ans" id="btnAns2" type="button">2</button>
+          <button class="soft-btn soft-btn--ans" id="btnAns3" type="button">3</button>
+          <button class="soft-btn soft-btn--ans" id="btnAns4" type="button">4</button>
+          <button class="soft-btn soft-btn--ans" id="btnAns5" type="button">5</button>
+        </div>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--danger soft-btn--wide" id="btnStrike" type="button">X (Error)</button>
+          <button class="soft-btn soft-btn--wide" id="btnUnstrike" type="button">QUITAR X</button>
+        </div>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--wide soft-btn--buzzer" id="btnBuzzer" type="button">CHICHARRA</button>
+          <button class="soft-btn soft-btn--wide" id="btnUndo" type="button" disabled>DESHACER / VOLVER AL PROGRESO</button>
+        </div>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--wide" id="btnPrev" type="button">RONDA ANTERIOR</button>
+          <button class="soft-btn soft-btn--wide soft-btn--mint" id="btnNext" type="button">SIGUIENTE RONDA</button>
+        </div>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--wide" id="btnStealLeft" type="button">ROBO IZQ</button>
+          <button class="soft-btn soft-btn--wide" id="btnStealRight" type="button">ROBO DER</button>
+        </div>
+        <div class="btn-row">
+          <button class="soft-btn soft-btn--danger soft-btn--large" id="btnReset" type="button">REINICIAR JUEGO</button>
+        </div>
+      </nav>
+
+      <div class="admin-conn" id="conn"><i></i><span id="connText">Conectando…</span></div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/gameplay-ui.js"></script>
+  <script src="js/animator.js"></script>
+</body>
+</html>

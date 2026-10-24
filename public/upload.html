@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#fdf3e6">
+  <title>Tarjetas del evento · Panel del animador</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="upload-page">
+  <div class="admin-bg" aria-hidden="true"></div>
+  <main class="upload-panel">
+    <header class="upload-header">
+      <img src="/img/logo.png" alt="100 Dinomamis y Dinopapis dijeron" class="upload-logo">
+      <div><span class="upload-eyebrow">Panel del animador</span><h1>Tarjetas del evento</h1>
+        <p>Comparte recuerdos y mensajes con todos los invitados.</p></div>
+    </header>
+    <section class="upload-section" aria-labelledby="uploadHeading">
+      <h2 id="uploadHeading">Una nueva tarjeta</h2>
+      <p class="upload-description">Elige una imagen y agr&eacute;gala al carrusel en vivo.</p>
+      <form id="cardUpload" action="/api/cards" method="post" enctype="multipart/form-data">
+        <div class="upload-file-picker">
+          <input class="sr-only" id="card" name="card" type="file" multiple accept="image/png,image/jpeg,image/gif,image/webp" aria-describedby="cardHelp fileName" required>
+          <label class="soft-btn upload-select" for="card">Seleccionar fotos</label>
+          <span id="fileName">Ning&uacute;n archivo seleccionado</span>
+        </div>
+        <p id="cardHelp" class="upload-help">PNG, JPG, GIF o WebP · Hasta 20 fotos · M&aacute;ximo 10 MB por foto.</p>
+        <button class="soft-btn upload-submit" type="submit">Subir fotos</button>
+        <p class="upload-feedback" id="uploadStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section class="upload-section" aria-labelledby="galleryHeading">
+      <div class="gallery-header">
+        <div><h2 id="galleryHeading">Galer&iacute;a Actual</h2><p id="galleryCount" class="upload-description">Cargando tarjetas&hellip;</p></div>
+        <button class="soft-btn" id="refreshGallery" type="button">Actualizar</button>
+      </div>
+      <p class="upload-feedback" id="galleryStatus" role="status" aria-live="polite"></p>
+      <div class="gallery-empty" id="galleryEmpty" hidden>
+        <span aria-hidden="true">♡</span><p>Todav&iacute;a no hay tarjetas.</p><p>Sube la primera para comenzar el carrusel.</p>
+      </div>
+      <div class="card-gallery" id="cardGallery" aria-busy="true"></div>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/upload.js"></script>
+</body>
+</html>
